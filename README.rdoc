@@ -1,4 +1,20 @@
 == README
+create new file in config with name "database.yml"
+Copy database.example.yml to database.yml
+
+create .env.example to .env
+
+to run db migratation scripts
+bin/rake db:migrate
+
+to reset Db, run 
+bin/rake db:reset
+
+To run the project-> 
+bin/rails server -b 0.0.0.0
+
+
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
@@ -7,7 +23,7 @@ Things you may want to cover:
 
 * Ruby version
     2.3.5
-  Rails version 
+
 
 * System dependencies
 
