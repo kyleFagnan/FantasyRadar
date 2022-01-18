@@ -1,8 +1,8 @@
 == README
 create new file in config with name "database.yml"
-Copy database.example.yml to database.yml
+Copy contents from database.example.yml to database.yml
 
-create .env.example to .env
+create .env from .env.example
 
 to run db migratation scripts
 bin/rake db:migrate
@@ -15,8 +15,6 @@ bundle install
 
 To run the project-> 
 bin/rails server -b 0.0.0.0
-
-
 
 
 This README would normally document whatever steps are necessary to get the

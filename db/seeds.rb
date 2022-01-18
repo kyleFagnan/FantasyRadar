@@ -54,16 +54,16 @@ player2 = Player.create({
 
 #seed for subscription
 
-# s1 = Subscription.create({
-#   user: user1, player: player1
-# })
-# s2 = Subscription.create({
-#   user: user2, player: player2
-# })
-# s3 = Subscription.create({
-#   user: user3, player: player2
-# })
-# s4 = Subscription.create({
-#   user: user4, player: player1
-# })
+s1 = Subscription.create({
+  user_id: 1, player_id: 2
+})
+s2 = Subscription.create({
+  user_id: 2, player_id: 1
+})
+s3 = Subscription.create({
+  user_id: 3, player_id: 1
+})
+s4 = Subscription.create({
+  user_id: 4, player_id: 2
+})
 
