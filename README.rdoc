@@ -10,6 +10,9 @@ bin/rake db:migrate
 to reset Db, run 
 bin/rake db:reset
 
+Install dependencies  by running following command
+bundle install
+
 To run the project-> 
 bin/rails server -b 0.0.0.0
 
