@@ -1,2 +1,18 @@
 <h1>Players#index,</h1>
-<p>Find me in app/views/players/index,.html.erb</p>
+<section class="players">
+  <table>
+    <thead>
+      <tr>
+        <th>Team</th>
+        <th>Player Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @players.each do |player| %>
+          <%= render player %>
+        <% end %>   
+      </tr>
+    </tbody>
+  </table>
+</section>
