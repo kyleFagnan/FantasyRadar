@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player: MyString
+  references: MyString
+  user: MyString
+  references: MyString
+
+two:
+  player: MyString
+  references: MyString
+  user: MyString
+  references: MyString
