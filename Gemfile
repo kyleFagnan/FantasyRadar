@@ -27,7 +27,7 @@ gem 'pg', '~> 0.10'
 #for fake data
 gem 'faker'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
