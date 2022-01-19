@@ -1,5 +1,5 @@
 <tr>
   <td>team</td>
   <td><a href="<%= player.player_api_id %>"><%= player.player_name %></a>
-  <td>NOTES</td>
+  <td><%= player.notes[0] ? player.notes[0].note_preview : "no recent notes" %></td>
 </tr>
