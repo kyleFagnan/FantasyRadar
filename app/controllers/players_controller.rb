@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
   def index
     @players = Player.all
-    # @notes = Note.find(@player)
+    @latest_notes = Note.limit(5).order(note_date: :desc)
     # byebug
   end
 

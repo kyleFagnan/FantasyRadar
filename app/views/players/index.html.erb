@@ -1,4 +1,13 @@
 <section class="players">
+<section class="latest-news">
+  <header>Recent News</header>
+    <% @latest_notes.each do |note| %>
+      <ul>
+        <strong><%= note.note_date %></strong>
+        <%= note.note_preview %>
+      </ul>
+    <% end %>
+</section>
   <table>
     <thead>
       <tr>

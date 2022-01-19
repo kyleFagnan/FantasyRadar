@@ -6,7 +6,7 @@ require "byebug"
 module PlayersHelper
   def self.getAllPlayers
     players_hash = []
-    ["a", "k", "m"].each do |letter| #TODO: uncomment to only get players with last name in array (for development/testing)
+    ["a", "z"].each do |letter| #TODO: uncomment to only get players with last name in array (for development/testing)
     # ("a".."z").each do |letter| # TODO: uncomment to get all players!
       players_url = "https://www.basketball-reference.com/players/" + letter 
   
@@ -35,46 +35,41 @@ module PlayersHelper
 
   def self.getPlayerNotes
     player_notes = []
-    @players = Player.all #TODO: fix and use the Player model instead of scraping again
-    # allPlayers = PlayersHelper::getAllPlayers()
-    # https://www.basketball-reference.com/players/news.fcgi?id=aldrila01
+    @players = Player.all
+
     if @players.count != 0
       @players.each do |player|
-        # byebug
-        # player_api_id = player[1]
-        players_url = "https://www.basketball-reference.com/players/news.fcgi?id=" + player.player_api_id 
+        players_url = "https://www.basketball-reference.com/players/news.fcgi?id=" + player.player_api_id + "&rss=1"
 
-        # players_url = "https://www.basketball-reference.com/players/news.fcgi?id=aldrila01"
-        html = open(players_url).read
+        html = open(players_url)
         
-        doc = Nokogiri::HTML(html)
-        # Nokogiri::HTML(open(url).read) 
-        players = doc.css(".news_stories").css("li")
-        # byebug
+        doc = Nokogiri::XML(html)
+
+        players = doc.xpath("//item")
+
         players.each do |p| 
-          # player_id = player.id # TODO: this should be Player[:id]
-          note_date = p.children[0].text
-          note_preview = p.children[4].text
-          note_link = p.children[5] ? p.children[5].attribute("href").value : nil
+          note_date = p.children[7].text
+          note_preview = p.children[5].text
+          note_link = p.children[3] ? p.children[3].text : nil
           
-          if note_date[0] === "1" # only retrieve notes from Janruary
+          if note_date.split("-")[1] === "01" &&  note_date.split("-")[0] === "2022" #only retrieve notes from Jan, 2022
             player_notes << {
               player_id: player.id, 
               note_date: note_date, 
               note_preview: note_preview, 
               link_title: note_link
             }
+
           end
         end
       end
     end
-    # byebug
 
     player_notes
   end
 end
 
 # testing
-PlayersHelper::getPlayerNotes()
+# PlayersHelper::getPlayerNotes()
 # PlayersHelper::getAllPlayers()
 # byebug
