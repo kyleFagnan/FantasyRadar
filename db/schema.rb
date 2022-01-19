@@ -11,10 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220118051052) do
+ActiveRecord::Schema.define(version: 20220118233328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "notes", force: :cascade do |t|
+    t.integer  "player_id"
+    t.string   "note_date"
+    t.string   "link_title"
+    t.string   "note_preview"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "notes", ["player_id"], name: "index_notes_on_player_id", using: :btree
+
+  create_table "player_notes", force: :cascade do |t|
+    t.integer  "player_id"
+    t.string   "note_date"
+    t.string   "link_title"
+    t.string   "note_preview"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "player_api_id"
+  end
+
+  add_index "player_notes", ["player_id"], name: "index_player_notes_on_player_id", using: :btree
 
   create_table "players", force: :cascade do |t|
     t.string   "player_name"
@@ -41,4 +64,5 @@ ActiveRecord::Schema.define(version: 20220118051052) do
     t.datetime "updated_at",        null: false
   end
 
+  add_foreign_key "notes", "players"
 end
