@@ -1,2 +1,12 @@
 <h1>Players#show</h1>
-<p>Find me in app/views/players/show.html.erb</p>
+<section>
+  <%= @player.player_name %>
+  <ul>
+    <% @player.notes.reverse.each do |note| %>
+      <li><strong><%= note.note_date %></strong>
+      <br>
+      <a href=<%= note.link_title %> target="_blank"><%= note.note_preview %></li></a>
+
+    <% end %>
+  </ul>
+</section>

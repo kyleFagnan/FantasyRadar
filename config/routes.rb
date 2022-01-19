@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   root 'players#index'
    resources :players, only: [:index, :show]
+   resources :users, only: [:edit]
    get '/login' => 'sessions#new'
    post '/login' => 'sessions#create'
    get '/logout' => 'sessions#destroy'
    
    get '/signup' => 'users#new'
    post '/users' => 'users#create'
+   put '/users' => 'users#update'
+   patch '/users' => 'users#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

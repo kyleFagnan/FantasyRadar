@@ -39,21 +39,31 @@ user4 = User.create!({
   notification_type: "TEXT"
 })
 #Seed data for Players
-player1 = Player.create({
-  player_name: Faker::Name.first_name
-})
-player2 = Player.create({
-  player_name: Faker::Name.first_name
-})
-# player3 = Player.create({
-#   player_name: Faker::Name.first_name
-# })
-# player4 = Player.create({
-#   player_name: Faker::Name.first_name
-# })
+Player.destroy_all
+# scrape = Scraper.new
+players = PlayersHelper::getAllPlayers()
+# puts players
+# byebug
+players.each do |player|
+  Player.create!(player)
+end
+
+players_notes = PlayersHelper::getPlayerNotes()
+p "created Player data: #{Player.count}"
+
+#Seed data for PlayersNotes
+Note.destroy_all
+# scrape = Scraper.new
+players_notes = PlayersHelper::getPlayerNotes()
+# puts players
+# byebug
+players_notes.each do |player_note|
+  Note.create!(player_note)
+end
+
+p "created PlayerNotes data #{Note.count}"
 
 #seed for subscription
-
 s1 = Subscription.create({
   user_id: 1, player_id: 2
 })
