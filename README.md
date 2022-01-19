@@ -1,4 +1,5 @@
-== README
+== README==
+
 create new file in config with name "database.yml"
 Copy contents from database.example.yml to database.yml
 

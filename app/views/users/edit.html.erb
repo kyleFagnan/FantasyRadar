@@ -1,2 +1,45 @@
-<h1>Users#edit,</h1>
-<p>Find me in app/views/users/edit,.html.erb</p>
+<%= form_for @user, :url => {:controller => "users", :action => "update" } do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %> 
+        Some error occured!
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </p>
+ 
+  <p>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :phone_number %><br>
+    <%= f.number_field :phone_number %>
+  </p>
+
+  <p>
+    <%= f.label :notification_type %><br>
+    <%= f.select :notification_type, ['EMAIL', 'TEXT']%>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
