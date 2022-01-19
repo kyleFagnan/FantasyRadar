@@ -41,14 +41,26 @@ user4 = User.create!({
 #Seed data for Players
 Player.destroy_all
 # scrape = Scraper.new
-players = PlayersHelper::player_urls()
+players = PlayersHelper::getAllPlayers()
 # puts players
-byebug
+# byebug
 players.each do |player|
   Player.create!([{ player_name: player[0], player_api_id:player[1]  }])
 end
 
 p "created Player data: #{Player.count}"
+
+#Seed data for PlayersNotes
+Note.destroy_all
+# scrape = Scraper.new
+players_notes = PlayersHelper::getPlayerNotes()
+# puts players
+# byebug
+players_notes.each do |player_note|
+  Note.create!([{ note_date: player_note[1], link_title:player_note[3], note_preview:player_note[2], player_api_id:player_note[0]  }])
+end
+
+p "created PlayerNotes data #{Note.count}"
 
 #seed for subscription
 s1 = Subscription.create({
