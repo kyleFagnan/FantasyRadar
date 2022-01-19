@@ -25,6 +25,15 @@ class UsersController < ApplicationController
   end
 end
 
+def update
+  @user = User.find(1)# User.find(session[:user_id])
+ 
+  if @user.update(user_params)
+    render 'show'
+  else
+    render 'edit'
+  end
+end
 
 private
 
@@ -38,15 +47,6 @@ def user_params
     :password_confirmation
   )
 end
-  def update
-    @user = User.find(1)# User.find(session[:user_id])
-   
-    if @user.update(user_params)
-      render 'show'
-    else
-      render 'edit'
-    end
-  end
 
   # private
   # def user_params

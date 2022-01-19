@@ -9,35 +9,35 @@ require 'faker'
 
 puts "Seeding Data ..."
 #Seed data for users
-user1 = User.create!({
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  phone_number: Faker::PhoneNumber.cell_phone,
-  notification_type: "EMAIL"
-})
+# user1 = User.create!({
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   email: Faker::Internet.email,
+#   phone_number: Faker::PhoneNumber.cell_phone,
+#   notification_type: "EMAIL"
+# })
 
-user2 = User.create!({
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  phone_number: Faker::PhoneNumber.cell_phone,
-  notification_type: "TEXT"
-})
-user3 = User.create!({
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  phone_number: Faker::PhoneNumber.cell_phone,
-  notification_type: "EMAIL"
-})
-user4 = User.create!({
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  phone_number: Faker::PhoneNumber.cell_phone,
-  notification_type: "TEXT"
-})
+# user2 = User.create!({
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   email: Faker::Internet.email,
+#   phone_number: Faker::PhoneNumber.cell_phone,
+#   notification_type: "TEXT"
+# })
+# user3 = User.create!({
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   email: Faker::Internet.email,
+#   phone_number: Faker::PhoneNumber.cell_phone,
+#   notification_type: "EMAIL"
+# })
+# user4 = User.create!({
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   email: Faker::Internet.email,
+#   phone_number: Faker::PhoneNumber.cell_phone,
+#   notification_type: "TEXT"
+# })
 #Seed data for Players
 Player.destroy_all
 # scrape = Scraper.new
