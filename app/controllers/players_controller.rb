@@ -1,6 +1,8 @@
 class PlayersController < ApplicationController
   def index
-    @players = Player.all.order(player_api_id: :asc)
+    @players = Player.all
+    # @notes = Note.find(@player)
+    # byebug
   end
 
   def show

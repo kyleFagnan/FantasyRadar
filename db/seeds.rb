@@ -45,9 +45,10 @@ players = PlayersHelper::getAllPlayers()
 # puts players
 # byebug
 players.each do |player|
-  Player.create!([{ player_name: player[0], player_api_id:player[1]  }])
+  Player.create!(player)
 end
 
+players_notes = PlayersHelper::getPlayerNotes()
 p "created Player data: #{Player.count}"
 
 #Seed data for PlayersNotes
@@ -57,7 +58,7 @@ players_notes = PlayersHelper::getPlayerNotes()
 # puts players
 # byebug
 players_notes.each do |player_note|
-  Note.create!([{ note_date: player_note[1], link_title:player_note[3], note_preview:player_note[2], player_api_id:player_note[0]  }])
+  Note.create!(player_note)
 end
 
 p "created PlayerNotes data #{Note.count}"

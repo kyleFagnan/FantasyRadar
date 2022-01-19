@@ -1,3 +1,3 @@
 class Note < ActiveRecord::Base
-  # has_many :Player
+  belongs_to :players
 end
