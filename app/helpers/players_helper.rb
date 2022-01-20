@@ -2,6 +2,7 @@ require "nokogiri"
 require "open-uri"
 # require "pry"
 require "byebug"
+require 'faker'
 
 module PlayersHelper
   def self.getAllPlayers
