@@ -1,0 +1,22 @@
+
+<h1>Test Data</h1>
+<div>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>PLAYER_API_ID</th>
+        <th>NEW NOTE</th>
+        <th>PUBLISHED DATE</th>
+      </tr>
+      <tr></tr>
+      <% @test_data.each do |data| %>
+        <tr>
+          <td><%=data[:player_api_id]%></td>
+          <td><%=data[:note_preview]%> </td>
+          <td><%=data[:note_date]%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
