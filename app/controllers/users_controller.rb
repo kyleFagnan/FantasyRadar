@@ -1,35 +1,52 @@
 class UsersController < ApplicationController
   
   def show
-    @user=User.find(params[:id])
+    @user=User.find(session[:user_id])
   end  
   
   def new
   end
 
-  def edit
-    @user = User.find(params[:id]) 
-  end
-  
   def create
+    # byebug
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path
+      # byebug
+      redirect_to "/"
     else
       redirect_to '/signup'
     end
   end
 
-def update
-  @user = User.find(1)# User.find(session[:user_id])
- 
-  if @user.update(user_params)
-    render 'show'
-  else
-    render 'edit'
-  end
-end
+  # def create
+  #   @user = User.new(user_params)
+  #   if @user.save
+  #     session[:user_id] = @user.id
+         
+  #   raise session[:user_id].inspect
+  #     redirect_to root_path
+  #   else
+         
+  #   raise @user.inspect
+  #     redirect_to '/signup'
+  #   end
+  # end
+  
+  # def edit
+  #   @user = User.find(params[:id]) 
+  # end
+
+
+  # def update
+  #   @user = User.find(1)# User.find(session[:user_id])
+  
+  #   if @user.update(user_params)
+  #     render 'show'
+  #   else
+  #     render 'edit'
+  #   end
+  # end
 
 private
 

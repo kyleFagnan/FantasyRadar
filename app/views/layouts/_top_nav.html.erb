@@ -11,12 +11,16 @@
         <li>
           <%= link_to 'Update Notes', [:admin, :player_notes] %>
         </li>
-       <li>
-        <%= link_to 'Login', :login %>
-      </li>
-      <li>
-      <%= link_to 'Signup', :signup %>
-    </li>
+           <li> 
+              <div>
+              <%# rendering current user or signup link %>
+                <% if current_user %>
+                  Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/logout' %>
+                <% else %>
+                  <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+                <% end %>
+              </div>
+            </li>
       </ul>
     
   </div>
