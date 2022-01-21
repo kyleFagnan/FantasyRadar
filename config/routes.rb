@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   root 'players#index'
    resources :players, only: [:index, :show]
    resources :users, only: [:edit]
+
+   namespace :admin do
+    root to: 'players#index'
+    resources :player_notes, only: [:index]
+  end
+
    get '/login' => 'sessions#new'
    post '/login' => 'sessions#create'
    get '/logout' => 'sessions#destroy'
