@@ -1,4 +1,12 @@
-<section class="players">
+<section>
+  <%= text_field_tag :search, "", class: "search_players ", placeholder: "search" %>
+  <table>
+    <thead></thead>
+    <tbody id='search_container'>
+    </tbody> 
+  </table>
+</section>
+
 <section class="latest-news">
   <header>Recent News</header>
     <% @latest_notes.each do |note| %>
@@ -8,6 +16,8 @@
       </ul>
     <% end %>
 </section>
+
+<section class="players">
   <table>
     <thead>
       <tr>
@@ -16,10 +26,35 @@
         <th>Most Recent Note</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id='player_container'>
         <% @players.each do |player| %>
           <%= render player %>
         <% end %>   
     </tbody>
   </table>
 </section>
+
+<script type="text/javascript">
+
+
+function setSearchedPlayer(p) {
+console.log(p);
+  $('#search_container').html("");
+  for(let player of p){
+    let $data = $('<tr><td><a href="/players/' + player.id + '">' + player.player_name + '</a></td></tr>') ;
+    $('#search_container').append($data)
+  }
+  $('#search_container').css('display','block');
+}
+
+$(".search_players").keyup(function() {
+      $.ajax({
+        type:"GET",
+        url: "/search",
+        data: {search: $(this).serialize()},
+        success: function(p){
+          setSearchedPlayer(p);
+        }
+      });
+  });
+</script>
