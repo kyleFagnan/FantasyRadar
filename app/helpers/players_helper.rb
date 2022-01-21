@@ -91,7 +91,10 @@ module PlayersHelper
       # byebug
       if Date.parse(notes[0].note_date) > Date.parse(player_note_date)
         # 3. send notification there are new notes for list of players from step#1
+        # twilio test
         # NotificationHelper::sendText("new notes have been detected!", "+16478211942")
+        # email test
+        # NewNoteNotification.send_email("abdi.elmi@rocketmail.com").deliver
         # 4. save notes to DB ex. Note.create!(player_note)
       end
     end
