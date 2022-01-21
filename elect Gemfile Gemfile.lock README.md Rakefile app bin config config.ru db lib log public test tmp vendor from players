@@ -1,6 +1,0 @@
- id | player_id | note_date |                                    link_title                                    |                                                           note_preview                                                            |         created_at         |         updated_at         
-----+-----------+-----------+----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+----------------------------+----------------------------
-  1 |       849 | 11/3      | https://www.hoopsrumors.com/2021/11/and-ones-foul-calls-new-ball-mudiay-acy.html | The NBA is pleased with the way its referees have handled the crackdown on foul calls on non-basketball moves so far this season, | 2022-01-19 01:44:38.213326 | 2022-01-19 01:44:38.213326
-  2 |       849 | 11/3      | https://hoopswire.com/free-agent-big-man-quincy-acy-signs-with-olympiacos/       | Free agent center/forward Quincy Acy has signed with Greek club Olympiacos, as relayed by JD Shaw of Hoops Rumors and several     | 2022-01-19 01:44:38.226468 | 2022-01-19 01:44:38.226468
-(2 rows)
-
