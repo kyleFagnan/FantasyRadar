@@ -68,9 +68,44 @@ module PlayersHelper
 
     player_notes
   end
+
+  def self.getNewNotes
+    new_player_notes = []
+
+    # 1. get last note_date fron notes table for all players from subscriptions table    
+    my_players = Player.where(id: [2, 3, 5])
+    notes = Note.all
+    my_players.each do |p|
+      notes = Note.where(id: p.id)
+
+      player_url = "https://www.basketball-reference.com/players/news.fcgi?id=" + p.player_api_id + "&rss=1"
+
+      html = open(player_url)
+        
+      doc = Nokogiri::XML(html)
+
+      player = doc.xpath("//item")
+
+      # 2. fetch all notes since last note_date from step#1
+      player_note_date = player.children[7].text
+
+      # byebug
+      if Date.parse(notes[0].note_date) > Date.parse(player_note_date)
+        # 3. send notification there are new notes for list of players from step#1
+        # twilio test
+        # NotificationHelper::sendText("new notes have been detected!", "+16478211942")
+        # email test
+        # NewNoteNotification.send_email("abdi.elmi@rocketmail.com").deliver
+        # 4. save notes to DB ex. Note.create!(player_note)
+      end
+    end
+    new_player_notes
+  end
 end
+
 
 # testing
 # PlayersHelper::getPlayerNotes()
 # PlayersHelper::getAllPlayers()
+PlayersHelper::getNewNotes()
 # byebug

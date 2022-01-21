@@ -12,7 +12,7 @@
     <% @latest_notes.each do |note| %>
       <ul>
         <strong><%= note.note_date %></strong>
-        <%= note.note_preview %>
+        <%= note.note_preview.html_safe %>
       </ul>
     <% end %>
 </section>
