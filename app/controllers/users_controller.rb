@@ -18,35 +18,21 @@ class UsersController < ApplicationController
       redirect_to '/signup'
     end
   end
-
-  # def create
-  #   @user = User.new(user_params)
-  #   if @user.save
-  #     session[:user_id] = @user.id
-         
-  #   raise session[:user_id].inspect
-  #     redirect_to root_path
-  #   else
-         
-  #   raise @user.inspect
-  #     redirect_to '/signup'
-  #   end
-  # end
   
-  # def edit
-  #   @user = User.find(params[:id]) 
-  # end
+  def edit
+    @user = User.find(params[:id]) 
+  end
 
 
-  # def update
-  #   @user = User.find(1)# User.find(session[:user_id])
+  def update
+    @user = User.find(session[:user_id])
   
-  #   if @user.update(user_params)
-  #     render 'show'
-  #   else
-  #     render 'edit'
-  #   end
-  # end
+    if @user.update(user_params)
+      render 'show'
+    else
+      render 'edit'
+    end
+  end
 
 private
 

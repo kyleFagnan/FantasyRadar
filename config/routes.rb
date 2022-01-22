@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   root 'players#index'
    resources :players, only: [:index, :show]
-   resources :users, only: [:edit]
-
+  #  resources :users, only: [:edit]
    namespace :admin do
     root to: 'players#index'
     resources :player_notes, only: [:index]
@@ -14,6 +13,7 @@ Rails.application.routes.draw do
    
    get '/signup' => 'users#new'
    post '/users' => 'users#create'
+   get '/users/:id/edit' => 'users#edit'
    put '/users' => 'users#update'
    patch '/users' => 'users#update'
    get '/search' => 'players#search'
