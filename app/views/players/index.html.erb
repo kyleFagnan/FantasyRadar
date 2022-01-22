@@ -5,6 +5,7 @@
       <ul>
         <strong><%= note.note_date %></strong>
         <%= note.note_preview %>
+        
       </ul>
     <% end %>
 </section>
@@ -14,10 +15,12 @@
         <th>Team</th>
         <th>Player Name</th>
         <th>Most Recent Note</th>
+        <th>Select Player</th>
       </tr>
     </thead>
     <tbody>
         <% @players.each do |player| %>
+          
           <%= render player %>
         <% end %>   
     </tbody>

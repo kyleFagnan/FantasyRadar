@@ -11,6 +11,8 @@ Rails.application.routes.draw do
    put '/users' => 'users#update'
    patch '/users' => 'users#update'
 
+   get '/subscriptions' => 'subscriptions#index'
+  post '/subscriptions' => 'subscriptions#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
