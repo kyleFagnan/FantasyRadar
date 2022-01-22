@@ -1,6 +1,5 @@
 class SubscriptionsController < ApplicationController
   def index
-
     # @favourite_notes = Subscription.favourite_notes
     @my_subscriptions = Subscription.where(user_id: session[:user_id])
     @my_players = []
