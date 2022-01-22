@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'players#index'
    resources :players, only: [:index, :show]
-  #  resources :users, only: [:edit]
+   resources :users, only: [:edit]
+   resources :subscriptions
+
    namespace :admin do
     root to: 'players#index'
     resources :player_notes, only: [:index]
@@ -18,6 +20,9 @@ Rails.application.routes.draw do
    patch '/users' => 'users#update'
    get '/search' => 'players#search'
 
+  #  get '/subscriptions' => 'subscriptions#index'
+  # post '/subscriptions' => 'subscriptions#create'
+  # delete '/subscriptions' => 'subscriptions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
