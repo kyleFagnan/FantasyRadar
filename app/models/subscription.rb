@@ -1,6 +1,6 @@
 class Subscription < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :player
+  belongs_to :users
+  belongs_to :players
 
   def self.favourites
     Subscription.all.select { |sub| sub.trans_type }

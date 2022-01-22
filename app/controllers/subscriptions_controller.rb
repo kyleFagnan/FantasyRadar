@@ -27,6 +27,17 @@ class SubscriptionsController < ApplicationController
     
   end
 
+  def destroy
+    @player = Subscription.find_by(player_id: params[:id])
+    
+    
+    @player.destroy
+
+    redirect_to subscriptions_path
+    # respond_to do |format|
+    #   format.html { redirect_to subscriptions_path, notice: 'player removed!' }
+    # end
+  end
   
   private
 

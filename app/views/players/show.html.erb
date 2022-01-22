@@ -1,6 +1,8 @@
 <h1>Players#show</h1>
 <section>
   <%= @player.player_name %>
+  <%= link_to 'Add', "/subscriptions/",id:#{@player.id}, method: :post %>
+  <%= link_to 'Delete', "/subscriptions/#{@player.id}", method: :delete %>
   <ul>
     <% @player.notes.reverse.each do |note| %>
       <li><strong><%= note.note_date %></strong>
