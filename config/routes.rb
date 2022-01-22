@@ -3,6 +3,12 @@ Rails.application.routes.draw do
    resources :players, only: [:index, :show]
    resources :users, only: [:edit]
    resources :subscriptions
+
+   namespace :admin do
+    root to: 'players#index'
+    resources :player_notes, only: [:index]
+  end
+
    get '/login' => 'sessions#new'
    post '/login' => 'sessions#create'
    get '/logout' => 'sessions#destroy'
@@ -11,6 +17,7 @@ Rails.application.routes.draw do
    post '/users' => 'users#create'
    put '/users' => 'users#update'
    patch '/users' => 'users#update'
+   get '/search' => 'players#search'
 
   #  get '/subscriptions' => 'subscriptions#index'
   # post '/subscriptions' => 'subscriptions#create'

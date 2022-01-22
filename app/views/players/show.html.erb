@@ -7,7 +7,7 @@
     <% @player.notes.reverse.each do |note| %>
       <li><strong><%= note.note_date %></strong>
       <br>
-      <a href=<%= note.link_title %> target="_blank"><%= note.note_preview %></li></a>
+      <a href=<%= note.link_title %> target="_blank"><%= note.note_preview.html_safe %></li></a>
 
     <% end %>
   </ul>

@@ -32,6 +32,13 @@ gem "pry"
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# for using .env environment variables
+gem 'dotenv'
+
+gem 'dotenv-rails'
+
+# for using twilio API to send SMS
+gem 'twilio-ruby'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

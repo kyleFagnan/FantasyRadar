@@ -1,0 +1,2 @@
+module Admin::PlayerNotesHelper
+end

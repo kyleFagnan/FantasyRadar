@@ -13,7 +13,9 @@ class PlayersController < ApplicationController
     @player = Player.find params[:id]
   end
 
- 
-
-
+  def search
+    term = params[:search].split("=").last
+    @players = Player.search(term.strip)
+    render json: @players
+  end
 end
