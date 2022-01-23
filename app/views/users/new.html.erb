@@ -1,7 +1,19 @@
 <h1>Signup</h1>
 
 <div class="well">
-    <%= form_for :user, url: '/users' do |f| %>
+  <%= form_for @user, url: '/users' do |f| %>
+
+    <% if f.object.errors.any? %>
+      <div class="alert alert-danger">
+        <strong>The following errors prevented saving:</strong>
+        <ul>
+          <% f.object.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <table class="table table-bordered">
       <tr><td>First Name:</td><td><%= f.text_field :first_name %></td></tr>
       <tr><td>Last Name:</td><td><%= f.text_field :last_name %></td></tr>
@@ -11,5 +23,6 @@
       <tr><td>Password Confirmation:</td><td><%= f.password_field :password_confirmation %></td></tr>
     </table>
     <%= f.submit %>
+    
   <% end %>
 </div>
