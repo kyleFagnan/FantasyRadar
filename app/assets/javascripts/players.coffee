@@ -11,6 +11,8 @@ $(document).ready ->
     return
   return
 
+  
+
   # $(document).ready ->
   # $('.addButton').on 'click', (event) ->
   #   $.post '/subscriptions',

@@ -1,30 +1,20 @@
 class SubscriptionsController < ApplicationController
   def index
-
-    # @favourite_notes = Subscription.favourite_notes
     @my_subscriptions = Subscription.where(user_id: session[:user_id])
     @my_players = []
     @my_subscriptions.each do |sub|
-      @my_players << Player.where(id: sub.player_id)
+    @my_players << Player.where(id: sub.player_id)
     end
   end
 
   def create 
-    @test = Subscription.where(player_id:params[:player_id]).first
-    puts @test
-    if !@test
-
+    if !Subscription.exists?(subscription_params)
+    
     @subscription = Subscription.create(subscription_params)
-    
-    elsif @test[:trans_type] == true
-      @test.update(trans_type: false)
-
-    elsif @test[:trans_type] == false
-      @test.update(trans_type: true)
-    end
-
-    redirect_to "/"
-    
+    redirect_to "/subscriptions"
+  else
+    redirect_to "/subscriptions"
+  end
   end
 
   def destroy
