@@ -43,6 +43,7 @@ private
       :last_name,
       :phone_number,
       :email,
+      :notification_type,
       :password,
       :password_confirmation
     )
