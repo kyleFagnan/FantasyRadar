@@ -13,15 +13,14 @@
     <% @latest_notes.each do |note| %>
       <ul>
         <strong><%= note.note_date %></strong>
-        <%= note.note_preview %>
+        <%= note.note_preview.html_safe %>
         
       </ul>
     <% end %>
 </section>
-  <table>
+<table class="table table-striped">
     <thead>
       <tr>
-        <th>Team</th>
         <th>Player Name</th>
         <th>Most Recent Note</th>
         <th>Select Player</th>
