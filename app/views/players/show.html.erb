@@ -1,10 +1,11 @@
 <h1>Players</h1>
 <section>
   <%= @player.player_name %>
-  
-  <%= link_to 'Unsubscribe', "/subscriptions/#{@player.id}", method: :delete %>
-   Subscribe <input type="checkbox" class="subButton" value="<%= @player.id %>"/> 
-
+  <% if session[:user_id] && @subscribed_player_exist%>
+    <%= link_to 'Unsubscribe', "/subscriptions/#{@player.id}", method: :delete %>
+  <% else %>
+    Subscribe <input type="checkbox" class="subButton" value="<%= @player.id %>"/> 
+  <% end %>
   <ul>
     <% @player.notes.reverse.each do |note| %>
       <li><strong><%= note.note_date %></strong>
