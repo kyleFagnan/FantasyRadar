@@ -2,5 +2,6 @@
   <td>team</td>
   <td><a href="players/<%= player.id %>"><%= player.player_name %></a>
   <td><%= player.notes[0] ? player.notes[0].note_preview : "no recent notes" %></td>
+  
   <td><input type="checkbox" class="subButton" value="<%= player.id %>" /> Subscribe</td>
 </tr>
