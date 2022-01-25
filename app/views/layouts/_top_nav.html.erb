@@ -18,7 +18,7 @@
               <div>
               <%# rendering current user or signup link %>
                 <% if current_user %>
-                  Signed in as <%= current_user.first_name %> <%= link_to 'Update Profile', "/users/#{session[:user_id]}/edit" %> | <%= link_to "Logout", '/logout' %>
+                  Signed in as <%= current_user.first_name %> <%= link_to 'Update Profile', "/admin/player_notes/new" %> | <%= link_to "Logout", '/logout' %>
                 <% else %>
                   <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
                 <% end %>
