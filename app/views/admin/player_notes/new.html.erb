@@ -1,0 +1,10 @@
+<h1>Add Notes</h1>
+
+<div class="well">
+  <%= form_for :notes, url: '/admin/player_notes' do |f| %>
+    <%= collection_select(:notes, :player_id, Player.all, :id, :player_name) %>
+      Player Note: <%= f.text_field :note_preview %>
+      Note Date: <%= f.text_field :note_date, value: DateTime.now.to_s %>
+    <%= f.submit %>    
+  <% end %>
+</div>

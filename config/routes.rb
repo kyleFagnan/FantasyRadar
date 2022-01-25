@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
    namespace :admin do
     root to: 'players#index'
-    resources :player_notes, only: [:index]
+    resources :player_notes, only: [:show, :new, :create]
   end
 
    get '/login' => 'sessions#new'
