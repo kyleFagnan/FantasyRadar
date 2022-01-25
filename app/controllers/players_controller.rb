@@ -4,6 +4,14 @@ class PlayersController < ApplicationController
 
     @notes = Note.all.order(note_date: :desc)
     @latest_notes = Note.limit(5).order(note_date: :desc)
+    if session[:user_id]
+      ids = []
+      my_subscriptions = Subscription.where(user_id: session[:user_id])
+      my_subscriptions.each do |s|
+        ids << s.player_id
+      end
+        @players = Player.where.not(id: ids);
+    end
     # PlayersHelper::getNewNotes()
   end
 
