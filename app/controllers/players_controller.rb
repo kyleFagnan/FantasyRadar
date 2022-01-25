@@ -11,7 +11,16 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find params[:id]
-    @user = User.find session[:user_id]
+    if session[:user_id]
+      @user = User.find session[:user_id]
+      my_subscriptions = Subscription.where(user_id: session[:user_id])
+      my_subscriptions.each do |sub|
+        if(@player.id.to_s == sub.player_id)
+          @subscribed_player_exist = true
+          break;
+        end
+      end
+    end
   end
 
   def search
