@@ -12,6 +12,7 @@ class Admin::PlayerNotesController < ApplicationController
     # raise note_params.inspect
     @note = Note.new(note_params)
     if @note.save
+      sendNotification(@note.player_id)
       redirect_to "/admin/player_notes/#{@note.id}"
     else
       render :new
@@ -27,5 +28,15 @@ class Admin::PlayerNotesController < ApplicationController
     :note_date,
     :player_id
     )
+  end
+
+  def sendNotification(player_id)
+    byebug
+    @user = User.find session[:user_id]
+    if @user.notification_type == "text"
+      NotificationHelper::sendText("new notes have been detected for #{player_id}!", @user.phone_number)
+    elsif @user.notification_type == "email"
+      NewNoteNotification.send_email(@user.email).deliver
+    end
   end
 end
