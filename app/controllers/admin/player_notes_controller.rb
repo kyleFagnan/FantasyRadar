@@ -1,17 +1,31 @@
 class Admin::PlayerNotesController < ApplicationController
-  def index
-    @fake_notes =  Faker::Lorem.sentences(number: 6) 
-    @players = Player.all.limit(6) ;
-    @test_data = []
-    i = 0
-    @players.each do |p|
-      @test_data << {
-        player_api_id: p.player_api_id,
-        note_preview: @fake_notes[i],
-        note_date: Date.today.to_s
-      }
-      i = i + 1
+  def new
+    @notes = Note.new
+  end
+
+  def show
+    @note = Note.find(params[:id])
+    @player = Player.where(id: @note.player_id)
+  end
+  
+  def create
+    # raise note_params.inspect
+    @note = Note.new(note_params)
+    if @note.save
+      redirect_to "/admin/player_notes/#{@note.id}"
+    else
+      render :new
     end
-    @test_data
+  
+  end
+
+  private
+  def note_params
+    # raise params.inspect
+    params.require(:notes).permit(
+    :note_preview,
+    :note_date,
+    :player_id
+    )
   end
 end
