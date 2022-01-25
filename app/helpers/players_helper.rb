@@ -73,8 +73,13 @@ module PlayersHelper
     new_player_notes = []
 
     # 1. get last note_date fron notes table for all players from subscriptions table    
-    my_players = Player.where(id: [2, 3, 5])
+    # my_players = Player.where(id: [2, 3, 5]) # testing functionality
+    my_subscription_ids = Subscription.all.pluck(:id)
+
+    my_players = Player.where(id: my_subscription_ids)
+
     notes = Note.all
+    
     my_players.each do |p|
       notes = Note.where(id: p.id)
 
@@ -89,14 +94,23 @@ module PlayersHelper
       # 2. fetch all notes since last note_date from step#1
       player_note_date = player.children[7].text
 
-      # byebug
-      if Date.parse(notes[0].note_date) > Date.parse(player_note_date)
+      # if external data note_date > my database notes date, send notification and save data
+      if Date.parse(player_note_date) > Date.parse(notes[0].note_date)
+        byebug
         # 3. send notification there are new notes for list of players from step#1
         # twilio test
-        # NotificationHelper::sendText("new notes have been detected!", "+16478211942")
+        NotificationHelper::sendText("new notes have been detected for #{notes[0].player_id}!", "+16478211942")
         # email test
         # NewNoteNotification.send_email("abdi.elmi@rocketmail.com").deliver
         # 4. save notes to DB ex. Note.create!(player_note)
+        new_player_notes << {
+          player_id: notes[0].player_id, 
+          note_date: player_note_date, 
+          note_preview: player.children[5].text, 
+          link_title: player.children[3] ? player.children[3].text : nil
+        }
+
+        Note.create!(new_player_notes)
       end
     end
     new_player_notes
@@ -107,5 +121,5 @@ end
 # testing
 # PlayersHelper::getPlayerNotes()
 # PlayersHelper::getAllPlayers()
-PlayersHelper::getNewNotes()
+# PlayersHelper::getNewNotes()
 # byebug
