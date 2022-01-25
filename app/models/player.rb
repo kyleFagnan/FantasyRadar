@@ -4,7 +4,8 @@ class Player < ActiveRecord::Base
 
   def self.search(search)
     if search
-          @searchedPlayer = Player.where("player_name LIKE ?", "%#{search}%")
+          searchStr = search.downcase
+          @searchedPlayer = Player.where("lower(player_name) LIKE ?", "%#{searchStr}%")
     else
       @searchedPlayer = Player.all
     end
