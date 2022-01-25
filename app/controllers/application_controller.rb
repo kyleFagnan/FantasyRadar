@@ -11,7 +11,4 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
-  def user_is_logged_in?
-    !!session[:user_id]
-  end
 end
