@@ -1,2 +1,10 @@
-<h1>Users#show,</h1>
-<p>Find me in app/views/users/show,.html.erb</p>
+<div class="well">
+    <table class="table table-bordered">
+      <tr><td>First Name:</td><td><%= @user.first_name %></td></tr>
+      <tr><td>Last Name:</td><td><%= @user.last_name %></td></tr>
+      <tr><td>Email:</td><td><%= @user.email %></td></tr>
+      <tr><td>Phone Number:</td><td><%= @user.phone_number %></td></tr>
+      <tr><td>Notification Type:</td><td><%= @user.notification_type %></td></tr>
+    </table>
+    <%= link_to 'Home', :root %>
+</div>

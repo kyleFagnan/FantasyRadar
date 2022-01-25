@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
-  has_many :subscriptions
+  has_many :subscription
   has_many :notes, dependent: :delete_all
 
   def self.search(search)
