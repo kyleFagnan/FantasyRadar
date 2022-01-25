@@ -3,7 +3,7 @@
     <div id="error_explanation">
       <h2>
         <%= pluralize(@user.errors.count, "error") %> 
-        Some error occured!
+        The following error(s) prevented saving:
       </h2>
       <ul>
         <% @user.errors.full_messages.each do |msg| %>

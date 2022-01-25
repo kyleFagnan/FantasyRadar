@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end  
   
   def new
+    @user = User.new
   end
 
   def create
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
       # byebug
       redirect_to "/"
     else
-      redirect_to '/signup'
+      render :new
     end
   end
   

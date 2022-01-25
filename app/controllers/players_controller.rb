@@ -11,6 +11,7 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find params[:id]
+    @user = User.find session[:user_id]
   end
 
   def search
