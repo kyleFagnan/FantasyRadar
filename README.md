@@ -1,48 +1,33 @@
-== README==
+## Fantasy Radar 
+------------------------------  
 
-create new file in config with name "database.yml"
-Copy contents from database.example.yml to database.yml
+In fantasy sports, a participant has to check the teams or free agents list to find player updates. This application sends out notifications to the users about updates of their subscribed players.  
 
-create .env from .env.example
+### Project Setup
+* Use Ruby version
+    2.3.5  
 
-to run db migratation scripts
-bin/rake db:migrate
+## System dependencies  
+    Install dependencies by running command 'bundle install'
 
-to reset Db, run 
-bin/rake db:reset
+## Configuration
+    create new file in the folder config with name "database.yml"  
 
-Install dependencies  by running following command
-bundle install
+    Copy contents from database.example.yml to database.yml 
 
-To run the project-> 
-bin/rails server -b 0.0.0.0
+    create .env in project folder from .env.example  
+  
+## Database creation
+    To run db migratation scripts  
+        bin/rake db:migrate
 
+    To reset Db, run  
+        bin/rake db:reset
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+    To run the project  
+        bin/rails server -b 0.0.0.0  
 
-Things you may want to cover:
-
-* Ruby version
-    2.3.5
-
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+### Dependencies  
+* Rails 4.2
+* PostgreSQL 9.x
+* twilio-ruby
