@@ -18,19 +18,49 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
-   background-color: rgb(225, 165, 77);
+   background: rgb(2,0,36);
+   background: linear-gradient(7deg, rgba(2,0,36,1) 2%, rgba(9,9,121,1) 32%, rgba(0,212,255,1) 100%);
    padding: 20px;
+   color: #fff
  }
 
  .nav-container a {
    text-decoration: none;
+   color: #fff
  }
 
  .nav-list a {
    text-decoration: none;
  }
+ 
+.navbar-Logo {
+  font-family: 'Courgette', cursive;
+  font-size: 64px;
+}
 
  .nav-list li {
    display: inline;
    padding-right: 15px;
+ }
+
+ .players {
+   display: flex;
+ }
+
+ .latest-news {
+   order: 2;
+   border: solid 1px #e1e7ee;
+   padding: 15px;
+   width: 80%;
+   margin: 20px;
+   height: fit-content;
+ }
+
+ .latest-news header {
+  font-weight: bold;
+  color: #1f1f1f;
+ }
+
+ .players table {
+   width: 300%;
  }
