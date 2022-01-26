@@ -1,3 +1,6 @@
+<h1 class="page_titles">Edit Profile</h1>
+
+
 <%= form_for @user, :url => {:controller => "users", :action => "update" } do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">

@@ -8,10 +8,13 @@
   font-size: 16px; /* Increase font-size */
   border: 1px solid #ddd; /* Add a grey border */
   background-size: 3% 90%; /* Add some space below the input */
+
 }
 
 #search_container{
   display : none;
+  background-color: white;
+  border: 1px solid black;
 }
 
 .name_box {
@@ -22,6 +25,7 @@
 .unsub a {
   color: crimson;
   font-size: 30px;
+  margin-bottom: 5px;
 }
 
 input[type=checkbox] {
@@ -44,9 +48,15 @@ input[type=checkbox] {
   padding: 1%;
   border-radius: 5px;
   margin-bottom: 1%;
+  background-color: rgb(245, 239, 165); 
 }
+
 
 .note li {
   list-style: none;
   font-size: 20px;
+}
+
+.note a {
+  color: black;
 }

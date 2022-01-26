@@ -18,11 +18,45 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
-   background: rgb(2,0,36);
-   background: linear-gradient(7deg, rgba(2,0,36,1) 2%, rgba(9,9,121,1) 32%, rgba(0,212,255,1) 100%);
-   padding: 20px;
-   color: #fff
+   background: rgb(3, 63, 73);
+   background: linear-gradient(7deg, rgb(3, 63, 73) 2%, rgb(8, 132, 170) 32%, rgb(7, 192, 230) 100%);
+   padding: 10px 20px 10px 20px;
+   color: #fff;
+   border-radius: 5px;
+   width: 100%;
  }
+
+ body {
+   background-color: rgb(240, 185, 144);
+ }
+
+ .page_titles {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px;
+  background-color: rgb(240, 185, 144);
+}
+
+ .basketball_pic_container {
+   display: flex;
+   width: 100%;
+   justify-content: center;
+ }
+
+ #fantasy_pic {
+   width: 100%;
+   height: 40vh;
+   margin-bottom: 3%;
+ }
+
+ .table-striped>tbody>tr:nth-child(odd)>td, 
+ .table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: rgb(187, 226, 233); 
+  }
+
+  .table-striped>tbody>tr:nth-child(even)>td, 
+.table-striped>tbody>tr:nth-child(even)>th {
+   background-color: rgb(238, 233, 174); 
+ };
 
  .nav-container a {
    text-decoration: none;
@@ -31,11 +65,25 @@
 
  .nav-list a {
    text-decoration: none;
+   color: rgb(224, 82, 26);
+   font-size: 25px;
+ }
+
+ .sign_in_name {
+   font-size: 20px;
+   color: rgb(243, 221, 26);
  }
  
 .navbar-Logo {
-  font-family: 'Courgette', cursive;
+  font-family: 'Merriweather', serif;
   font-size: 64px;
+  color: rgb(241, 108, 31);
+  text-shadow: 2px 2px rgb(245, 225, 47);
+}
+
+.navbar-Logo:hover {
+  color:rgb(224, 82, 26);
+  text-shadow: 3px 3px rgb(243, 222, 33);
 }
 
  .nav-list li {
@@ -54,6 +102,7 @@
    width: 80%;
    margin: 20px;
    height: fit-content;
+   background-color: rgb(245, 239, 153); 
  }
 
  .latest-news header {
@@ -63,4 +112,15 @@
 
  .players table {
    width: 300%;
+ }
+
+ tbody a {
+   font-size: 20px;
+   color: rgb(39, 6, 3);
+ }
+
+ /* Add notes page */
+ 
+ .well {
+   background-color: rgb(238, 233, 174);
  }

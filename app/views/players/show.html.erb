@@ -1,7 +1,7 @@
 
 <section>
   <div class="name_box">
-    <h1 class="player_name"><u><%= @player.player_name %></h1></u>
+    <h1 class="player_name"><%= @player.player_name %></h1>
       <% if session[:user_id] && @subscribed_player_exist%>
     <div class="unsub"> 
     <%= link_to 'Unsubscribe', "/subscriptions/#{@player.id}",class: "add_button", method: :delete %>
