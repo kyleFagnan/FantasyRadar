@@ -2,14 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .search_players{
-  // background-image: url('searchicon.png'); /* Add a search icon to input */
-  background-position: 10px 12px; /* Position the search icon */
+  background-image: url('searchicon.png'); /* Add a search icon to input */
+  background-position: 100% 2px;/* Position the search icon */
   background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: 30%; 
   font-size: 16px; /* Increase font-size */
-  padding: 12px 20px 12px 40px; /* Add some padding */
   border: 1px solid #ddd; /* Add a grey border */
-  margin-bottom: 12px; /* Add some space below the input */
+  background-size: 3% 90%; /* Add some space below the input */
 }
 
 #search_container{
