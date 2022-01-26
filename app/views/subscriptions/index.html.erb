@@ -1,9 +1,8 @@
-<h1>Subscriptions page </h1>
+<h1 class="sub_title">My Subscriptions</h1>
 
-<table>
+<table class="table table-striped">
     <thead>
       <tr>
-        <th>Team</th>
         <th>Player Name</th>
         <th>Most Recent Note</th>
         <th>Select Player</th>
@@ -13,7 +12,6 @@
 
         <% @my_players.each do |player| %>
           <tr>          
-          <td>team</td>
           <td><a href="players/<%= player[0].id %>"><%= player[0].player_name %></a>
           <td><%= player[0].notes[0] ? player[0].notes[0].note_preview : "no recent notes" %></td>
           <td><%= link_to 'Delete', "/subscriptions/#{player[0].id}", method: :delete %></td>

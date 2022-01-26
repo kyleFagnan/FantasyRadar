@@ -1,17 +1,24 @@
-<h1>Players</h1>
+
 <section>
-  <%= @player.player_name %>
-  <% if session[:user_id] && @subscribed_player_exist%>
-    <%= link_to 'Unsubscribe', "/subscriptions/#{@player.id}", method: :delete %>
-  <% else %>
-    Subscribe <input type="checkbox" class="subButton" value="<%= @player.id %>"/> 
+  <div class="name_box">
+    <h1 class="player_name"><u><%= @player.player_name %></h1></u>
+      <% if session[:user_id] && @subscribed_player_exist%>
+    <div class="unsub"> 
+    <%= link_to 'Unsubscribe', "/subscriptions/#{@player.id}",class: "add_button", method: :delete %>
+    </div>
+      <% else %>
+  <div class="add_button">
+   <h2>Add</h2><input type="checkbox" class="subButton" value="<%= @player.id %>"/> 
+  </div>
+  </div>
   <% end %>
   <ul>
-    <% @player.notes.reverse.each do |note| %>
-      <li><strong><%= note.note_date %></strong>
-      <br>
-      <a href=<%= note.link_title %> target="_blank"><%= note.note_preview.html_safe %></li></a>
-
+    <% @player.notes.each do |note| %>
+      <div class="note">
+        <li><strong><%= note.note_date %></strong>
+        <br>
+        <a href=<%= note.link_title %> target="_blank"><%= note.note_preview.html_safe %></li></a>
+    </div>
     <% end %>
   </ul>
 </section>
