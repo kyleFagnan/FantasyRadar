@@ -2,16 +2,61 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .search_players{
-  // background-image: url('searchicon.png'); /* Add a search icon to input */
-  background-position: 10px 12px; /* Position the search icon */
+  background-image: url('searchicon.png'); /* Add a search icon to input */
+  background-position: 100% 2px;/* Position the search icon */
   background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: 30%; 
   font-size: 16px; /* Increase font-size */
-  padding: 12px 20px 12px 40px; /* Add some padding */
   border: 1px solid #ddd; /* Add a grey border */
-  margin-bottom: 12px; /* Add some space below the input */
+  background-size: 3% 90%; /* Add some space below the input */
+
 }
 
 #search_container{
   display : none;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.name_box {
+  width:100%;
+  padding: 2%;
+  
+}
+.unsub a {
+  color: crimson;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+input[type=checkbox] {
+  transform: scale(2.5);
+  margin-left: 2%;
+}
+
+.add_button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.player_name {
+  font-size: 60px;
+}
+
+.note {
+  border: 2px solid black;
+  padding: 1%;
+  border-radius: 5px;
+  margin-bottom: 1%;
+  background-color: rgb(245, 239, 165); 
+}
+
+
+.note li {
+  list-style: none;
+  font-size: 20px;
+}
+
+.note a {
+  color: black;
 }

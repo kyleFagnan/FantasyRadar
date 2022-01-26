@@ -1,13 +1,10 @@
 <nav class="navbar">
   <div class="nav-container">
     
-      <a class="navbar-Logo" href="/">Fantasy Radar</a>
+      <a class="navbar-Logo" href="/">FantasyRadar</a>
     
     
       <ul class="nav-list">
-        <li>
-          <%= link_to 'Home', :root %>
-        </li>
         <li>
         <%= link_to 'Subscriptions', :subscriptions %>
         </li>
@@ -18,7 +15,7 @@
               <div>
               <%# rendering current user or signup link %>
                 <% if current_user %>
-                  Signed in as <%= current_user.first_name %> <%= link_to 'Update Profile', "/users/#{session[:user_id]}/edit" %> | <%= link_to "Logout", '/logout' %>
+                  <span class="sign_in_name">Signed in as <%= current_user.first_name %></span><br> <%= link_to 'Update Profile', "/users/#{session[:user_id]}/edit" %> | <%= link_to "Logout", '/logout' %>
                 <% else %>
                   <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
                 <% end %>

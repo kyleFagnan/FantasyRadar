@@ -1,5 +1,11 @@
+
+<div class="basketball_pic_container">
+<img id="fantasy_pic" src="https://blog.statementgames.com/wp-content/uploads/2020/07/WK-Puck-2.jpg" alt="fantasy basketball logo">
+</div>
+
+
 <section>
-  <%= text_field_tag :search, "", class: "search_players ", placeholder: "Search Here..." %>
+  <%= text_field_tag :search, "", class: "search_players form-control", placeholder: "Search Here..." %>
   <table>
     <thead></thead>
     <tbody id='search_container'>
@@ -23,7 +29,7 @@
       <tr>
         <th>Player Name</th>
         <th>Most Recent Note</th>
-        <th>Select Player</th>
+        <th>Add Player</th>
       </tr>
     </thead>
     <tbody>
