@@ -31,10 +31,11 @@ class Admin::PlayerNotesController < ApplicationController
   end
 
   def sendNotification(player_id)
-    byebug
+    # byebug
+    @player = Player.where(id: player_id)
     @user = User.find session[:user_id]
     if @user.notification_type == "text"
-      NotificationHelper::sendText("new notes have been detected for #{player_id}!", @user.phone_number)
+      NotificationHelper::sendText("new notes have been detected for #{@player[0].player_name}!", @user.phone_number)
     elsif @user.notification_type == "email"
       NewNoteNotification.send_email(@user.email).deliver
     end
