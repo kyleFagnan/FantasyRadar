@@ -27,7 +27,7 @@
  }
 
  body {
-   background-color: rgb(240, 185, 144);
+   background-color: rgb(238, 191, 156);
  }
 
  .page_titles {
@@ -50,12 +50,12 @@
 
  .table-striped>tbody>tr:nth-child(odd)>td, 
  .table-striped>tbody>tr:nth-child(odd)>th {
-    background-color: rgb(187, 226, 233); 
+    background-color: rgb(207, 242, 248); 
   }
 
   .table-striped>tbody>tr:nth-child(even)>td, 
 .table-striped>tbody>tr:nth-child(even)>th {
-   background-color: rgb(238, 233, 174); 
+   background-color: rgb(241, 237, 193); 
  };
 
  .nav-container a {
